@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+*.class
+
+*.py[cod]
+
+*.jar
+*.log
+
+target/
+dist/
+
+.parcel-cache
+
+
