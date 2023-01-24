@@ -1,30 +1,40 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
 
-const heading = React.createElement(
-    "h1", 
-    {
-    id:"title",
-    }, 
-    "Heading 1"
+
+//React element
+const title = (
+    <h1 id="title" key="h4">Namaste React Element
+    </h1>
+);
+
+//Or
+
+const Title = ()=>(
+    <h1 id="title" key="h4">Namaste React Funtional component
+    </h1>
+);
+
+// React component
+// Funtional component - New way to write the code
+//Name of Component always strat with capital letters - good practice to use (not mandatory)
+// Funtional component is a normal function :)
+
+
+//I we want to use a funtional component in other functional componnet is call COMPONENT COMPOSITION
+const HeaderComponent = ()=>{
+    return (
+    <div>
+        {title}
+        <Title />
+        <h1>Namaste React Header Component</h1>
+        <h2>This is tag h2</h2>
+    </div>
     );
+};
 
-const heading2 = React.createElement(
-    "h2",
-    {
-        id:"title"
-    },
-    "Heading 2"
-);
-
-const container = React.createElement(
-    "div",
-    {
-        id:"container"
-    },[heading,heading2]
-);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //paasing a react element inside the root
-root.render(container);
+root.render(<HeaderComponent />);
