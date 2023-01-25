@@ -1,52 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+export const IMG_CDN_URL =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 
-/*
-    Header
-        - Logo (Title)
-        - Nav Items (Right Side)
-        - Cart
-    Body
-        - Searchbar
-        - RestaurantList
-            - RestaurantCard (many cards)
-                - Image
-                - Name
-                - Rating
-                - Cusins
-    Footer
-        - Links
-        - Copyrights
-
-*/
-
-const Title = () => (
-  <a href="/">
-    <img
-      className="logo"
-      alt="logo"
-      src="https://yt3.googleusercontent.com/ytc/AMLnZu_EC-ECXAxRAixWGEfMsE1rdSoetBHyxmLNdtCB=s900-c-k-c0x00ffffff-no-rj"
-    />
-  </a>
-);
-
-const Header = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const restaurantList = [
+export const restaurantList = [
   {
     type: "restaurant",
     data: {
@@ -1644,53 +1599,3 @@ const restaurantList = [
     subtype: "basic",
   },
 ];
-
-const RestaurantCard = ({
-  name,
-  cuisines,
-  lastMileTravelString,
-  cloudinaryImageId,
-}) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
-          cloudinaryImageId
-        }
-      ></img>
-      <h2>{name}</h2>
-      <h3>{cuisines.join(",")}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="restaurant-list">
-        {restaurantList.map(restaurant => {
-           return <RestaurantCard
-           {...restaurant.data} key={restaurant.data.id}
-         /> 
-        })}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h4>Footer</h4>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
